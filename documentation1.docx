@@ -1,0 +1,24 @@
+Import Statements:
+
+These statements import necessary modules and classes required for the code execution. They include modules for loading data, handling embeddings, working with language models, managing conversational chains, and performing text generation.
+Local Model Loading:
+
+Here, a pre-trained language model and its corresponding tokenizer are loaded from a local directory. These models are essential for generating responses during the conversation.
+Pipeline for Text Generation:
+
+This creates a text generation pipeline using the loaded language model and tokenizer. The pipeline is configured with parameters like maximum number of tokens to generate and temperature for controlling randomness in text generation.
+Embeddings:
+
+This initializes embeddings required for processing text data. Embeddings are representations of words or phrases in a high-dimensional space, which capture semantic information about the text.
+Vector Database Creation:
+
+This function creates a vector database from documents. It loads data from an Excel file, splits it into smaller chunks for processing, computes embeddings for these chunks, and constructs a vector database using FAISS, a library for efficient similarity search on large-scale datasets.
+Loading Vector Database:
+
+The vector database, previously created and saved, is loaded into memory. It contains pre-computed embeddings of document chunks and is used for efficient retrieval of similar documents during conversation.
+Conversational Retriever Setup:
+
+A conversational retriever is set up using the loaded vector database. It defines a mechanism to retrieve relevant documents or responses based on user queries. In this setup, documents with a similarity score above a certain threshold (0.7 in this case) are considered relevant.
+User Interaction Loop:
+
+This loop allows the user to interact with the conversational AI system. It prompts the user to input queries, processes the queries using the conversational chain (comprising retrieval and generation components), and prints the generated responses. The loop continues until the user decides to exit by typing 'exit'.
